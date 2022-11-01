@@ -33,7 +33,7 @@ spec:
           # - Each init container must complete successfully before the next one starts.
       containers:
       - name: daga
-        image: vimal13/apache-webserver-php:lastest
+        image: vimal13/apache-webserver-php   # docker pull vimal13/apache-webserver-php
         resources:
           requests:
             cpu: 100m
