@@ -50,7 +50,7 @@ kind: Application
 metadata:
   name: nginx-application
 spec:
-  project: 
+  project: demo
   source:
     repoURL: https://github.com/sauravrana646/argocd.git
     targetRevision: HEAD
