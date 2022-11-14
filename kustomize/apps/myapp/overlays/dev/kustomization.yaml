@@ -7,5 +7,7 @@ bases:
 
 nameSuffix: -dev
 
+namespace: development
+
 patchesStrategicMerge:
   - ./daga-deploy-patch.yaml

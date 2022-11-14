@@ -8,6 +8,7 @@ kind: Kustomization
 # resources:
   # - ../../../core/gitops-controller/dev
 
+
 components:
   - ../../../components/applicationsets/dev
 
