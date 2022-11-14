@@ -2,5 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: daga-webserver
+  namespace: daga
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: daga
+    
+  template:
+    containers:
+      - name: daga
+    
