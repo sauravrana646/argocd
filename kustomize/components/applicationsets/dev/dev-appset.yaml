@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: Appset
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/sauravrana646/argocd.git
+      revision: HEAD
+      directories:
+      - path: apps/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: "development"
+      source:
+        repoURL: https://github.com/sauravrana646/argocd.git
+        targetRevision: HEAD
+        path: '{{path}}/overlays/dev/'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'development'
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true

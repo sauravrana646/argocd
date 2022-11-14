@@ -1,0 +1,12 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: development
+spec:
+  description: This is the project for Developement Kubernetes Cluster
+  sourceRepos:
+    - '*'
+  destinations:
+    - namespace: '*'
+      server: '*'
