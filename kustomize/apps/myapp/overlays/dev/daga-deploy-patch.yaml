@@ -8,8 +8,8 @@ spec:
   selector:
     matchLabels:
       app: daga
-    
   template:
-    containers:
+    spec:
+      containers:
       - name: daga
     
