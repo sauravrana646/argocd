@@ -10,7 +10,7 @@ spec:
   destinations:
     - namespace: '*'
       server: '*'
-   clusterResourceWhitelist:
+  clusterResourceWhitelist:
   - group: ''
     kind: Namespace
 
