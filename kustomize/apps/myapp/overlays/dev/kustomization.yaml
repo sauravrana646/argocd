@@ -5,6 +5,9 @@ kind: Kustomization
 bases: 
 - ../../base/
 
+resources:
+  - ./01-sealed-secret.yaml
+
 nameSuffix: -dev
 
 namespace: development
