@@ -7,7 +7,7 @@ kind: Kustomization
 
 resources:
   # - ../../../core/gitops-controller/dev
- - ../../../core/bitnami-sealed-secrets/overlays/dev
+ - ../../../core/bitnami-sealed-secrets-controller/overlays/dev
 
 
 components:
