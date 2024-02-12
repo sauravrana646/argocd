@@ -51,6 +51,9 @@ kind: Application
 metadata:
   name: nginx-application
   namespace: default
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: ng=reboot646/nginx[:1.x.x]
+    argocd-image-updater.argoproj.io/ng.update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
