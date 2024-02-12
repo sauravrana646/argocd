@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: test
   annotations: 
-    argocd-image-updater.argoproj.io/image-list: ng=reboot646/nginx[:1.x.x]
+    argocd-image-updater.argoproj.io/image-list: ng=docker.io/reboot646/nginx:~1.0.0
     argocd-image-updater.argoproj.io/ng.update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io
