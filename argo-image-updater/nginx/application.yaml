@@ -2,6 +2,9 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: test
+  annotations: 
+    argocd-image-updater.argoproj.io/image-list: ng=reboot646/nginx[:1.x.x]
+    argocd-image-updater.argoproj.io/ng.update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
