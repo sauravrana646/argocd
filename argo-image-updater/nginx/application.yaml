@@ -3,8 +3,9 @@ kind: Application
 metadata:
   name: test
   annotations: 
-    argocd-image-updater.argoproj.io/image-list: ng=docker.io/reboot646/nginx:~1.0
+    argocd-image-updater.argoproj.io/image-list: ng=reboot646/nginx:~1.x
     argocd-image-updater.argoproj.io/ng.update-strategy: semver
+    argocd-image-updater.argoproj.io/write-back-method: git
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -15,8 +16,10 @@ spec:
   source:
     path: argo-image-updater/nginx/chart/nginx
     repoURL: 'git@github.com:sauravrana646/argocd.git'
-    targetRevision: HEAD
+    targetRevision: main
     helm:
+      parameters:
+      - name: 
       valueFiles:
         - values.yaml
   sources: []
