@@ -587,15 +587,15 @@ plugins: []
 ## Configure grafana datasources
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
-datasources: 
+datasources: {}
 #  datasources.yaml:
 #    apiVersion: 1
 #    datasources:
-   - name: Prometheus
-     type: prometheus
-     url: http://prometheus.
-     access: proxy
-     isDefault: true
+  #  - name: Prometheus
+  #    type: prometheus
+  #    url: http://prometheus.
+  #    access: proxy
+  #    isDefault: true
 #    - name: CloudWatch
 #      type: cloudwatch
 #      access: proxy
