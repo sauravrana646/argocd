@@ -3013,7 +3013,7 @@ prometheus:
 
     ## Service type
     ##
-    type: ClusterIP
+    type: LoadBalancer
 
     ## Additional ports to open for Prometheus service
     ##

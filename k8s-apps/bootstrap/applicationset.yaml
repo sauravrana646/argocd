@@ -44,7 +44,8 @@ spec:
       directories:
       - path: k8s-apps/charts/default/*
       - path: k8s-apps/charts/ingress-nginx/*
-      - path: k8s-apps/charts/monitoring/*
+      # - path: k8s-apps/charts/monitoring/*
+      - path: k8s-apps/charts/kube-stack/*
       # - path: application-set/cluster-1/staging/*
   template:
     metadata:
