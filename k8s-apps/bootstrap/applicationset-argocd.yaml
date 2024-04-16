@@ -1,0 +1,70 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: appset
+#   namespace: default
+# spec:
+#   generators:
+#   - git:
+#       repoURL: https://github.com/sauravrana646/argocd.git
+#       revision: HEAD
+#       directories:
+#       - path: k8s-apps/charts/*
+#   template:
+#     metadata:
+#       name: '{{path.basename}}'
+#     spec:
+#       project: "default"
+#       source:
+#         repoURL: https://github.com/sauravrana646/argocd.git
+#         targetRevision: HEAD
+#         path: '{{path}}/'
+#       destination:
+#         server: https://kubernetes.default.svc
+#         namespace: 'default'
+#       syncPolicy:
+#         syncOptions:
+#         - CreateNamespace=true
+
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: base
+  namespace: argocd
+spec:
+  goTemplate: true # doubt
+  goTemplateOptions: ["missingkey=error"] # doubt
+  generators:
+  - git:
+      repoURL: https://github.com/sauravrana646/argocd.git
+      revision: HEAD
+      directories:
+      - path: k8s-apps/charts/default/*
+      - path: k8s-apps/charts/ingress-nginx/*
+      # - path: k8s-apps/charts/monitoring/*
+      - path: k8s-apps/charts/kube-stack/*
+      - path: k8s-apps/charts/k8spacket/*
+      # - path: application-set/cluster-1/staging/*
+  template:
+    metadata:
+      name: '{{.path.basename}}'
+      namespace: '{{index .path.segments 2}}'
+    spec:
+      project: "default" # to be changed
+      source:
+        repoURL: https://github.com/sauravrana646/argocd.git
+        targetRevision: HEAD
+        path: '{{.path.path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{index .path.segments 2}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
+        - PruneLast=true

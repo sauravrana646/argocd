@@ -1,0 +1,2 @@
+Installation completed.
+See https://k8spacket.github.io/k8spacket/#installation, to check how to configure Grafana to use k8spacket.
